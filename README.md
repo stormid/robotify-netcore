@@ -1,4 +1,4 @@
-# ![Robotify](https://raw.githubusercontent.com/stormid/robotify.aspnetcore/master/docs/img/robot.png) Robotify
+# ![Robotify.AspNetCore](https://raw.githubusercontent.com/stormid/robotify.aspnetcore/master/docs/img/robot.png) Robotify.AspNetCore
 
 Robotify - robots.txt middleware for .NET core
 

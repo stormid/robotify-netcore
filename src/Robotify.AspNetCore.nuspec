@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/stormid/Robotify.AspNetCore/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/stormid/Robotify.AspNetCore</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/stormid/robotify.aspnetcore/master/docs/img/robot.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2017</copyright>
+    <tags>Tag1 Tag2</tags>
+  </metadata>
+</package>
