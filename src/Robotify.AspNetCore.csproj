@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <Authors>philo, stormid</Authors>
+    <Company>Storm ID</Company>
+    <Description>robots.txt middleware for .NET core</Description>
+    <PackageProjectUrl>https://github.com/stormid/Robotify.AspNetCore</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/stormid/Robotify.AspNetCore/master/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://github.com/stormid/robotify/raw/master/docs/img/robot.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/stormid/Robotify.AspNetCore.git</RepositoryUrl>
+    <PackageTags>robots</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\VersionAssemblyInfo.cs" Link="VersionAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="1.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.1.2" />
+  </ItemGroup>
+
+</Project>
