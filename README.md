@@ -52,10 +52,10 @@ Robotify can be configured within the `.UseRobotify()` method or via json config
 
 ```json
 {
-  "Robotyify": {
+  "Robotify": {
     "Enabled": true,
     "SitemapUrl": "https://www.example.com/sitemap.xml",
-    "CrawDelay": 10,
+    "CrawlDelay": 10,
     "Groups": [
       {
         "UserAgent": "*",

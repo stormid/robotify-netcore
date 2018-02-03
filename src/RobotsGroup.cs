@@ -30,11 +30,15 @@ namespace Robotify.AspNetCore
             var sb = new StringBuilder();
 
             sb.AppendLine($"user-agent: {UserAgent}");
-            
-            foreach (var disallowPath in Disallow)
+
+            if (Disallow != null)
             {
-                sb.AppendLine($"disallow: {disallowPath}");
+                foreach (var disallowPath in Disallow)
+                {
+                    sb.AppendLine($"disallow: {disallowPath}");
+                }
             }
+           
 
             if (Allow != null)
             {
