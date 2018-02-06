@@ -10,8 +10,8 @@ namespace Robotify.AspNetCore
     {
 
         public string UserAgent { get; set; }
-        public IList<string> Disallow { get; set; }
-        public IList<string> Allow { get; set; }
+        public IList<string> Disallow { get; set; } = Enumerable.Empty<string>().ToList();
+        public IList<string> Allow { get; set; } = Enumerable.Empty<string>().ToList();
         
         internal void MergePaths(StringValues disallowPaths, StringValues allowPaths)
         {

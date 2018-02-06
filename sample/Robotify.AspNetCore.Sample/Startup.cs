@@ -24,14 +24,15 @@ namespace Robotify.AspNetCore.Sample
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
+        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(Configuration);
             services.AddOptions();
 
-            services.AddRobotify(Configuration);
+            services.AddRobotify();
             
             // Add framework services.
             services.AddMvc();
