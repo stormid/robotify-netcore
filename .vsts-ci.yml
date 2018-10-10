@@ -1,0 +1,12 @@
+variables:
+  cake.buildTarget: 'CI'
+  build.configuration: 'Release'
+trigger:
+- master
+steps:
+- task: cake-build.cake.cake-build-task.Cake@0
+  displayName: 'Run Cake Build'
+  name: 'RunCakeBuild'
+  inputs:
+    target: $(cake.buildTarget)
+    arguments: '--Configuration="$(build.configuration)"'
