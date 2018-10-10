@@ -53,7 +53,7 @@ namespace Robotify.AspNetCore.Sample
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.UseRobotify();
+            app.UseRobotify(c => c.DisableFileHeaderComments());
         }
     }
 }
