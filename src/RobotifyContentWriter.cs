@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using Microsoft.Extensions.Options;
@@ -23,8 +24,14 @@ namespace Robotify.AspNetCore
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine($"# Generated with {GetType().GetTypeInfo().Assembly.GetName().Name} (v{GetType().GetTypeInfo().Assembly.GetName().Version})");
-            sb.AppendLine($"# created: {DateTimeOffset.UtcNow:s}\n");
+            if (!options.DisableFileHeaderComments)
+            {
+                var comments = GetFileHeaderComments();
+                foreach (var comment in comments)
+                {
+                    sb.AppendLine($"# {comment}");
+                }
+            }
 
             if (options.CrawlDelay.HasValue && options.CrawlDelay > 0)
             {
@@ -46,6 +53,12 @@ namespace Robotify.AspNetCore
             }
 
             return sb.ToString();
+        }
+
+        protected virtual IEnumerable<string> GetFileHeaderComments()
+        {
+            yield return $"Generated with {GetType().GetTypeInfo().Assembly.GetName().Name} (v{GetType().GetTypeInfo().Assembly.GetName().Version})";
+            yield return $"created: {DateTimeOffset.UtcNow:s}\n";
         }
 
         protected virtual string GetRobotsGroup(RobotsGroup group)
