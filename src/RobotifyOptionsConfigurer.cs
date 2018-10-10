@@ -93,9 +93,20 @@ namespace Robotify.AspNetCore
         {
             return Add(userAgent, paths, new StringValues());
         }
+
         public RobotifyOptionsConfigurer Allow(string userAgent, params string[] paths)
         {
             return Add(userAgent, new StringValues(), paths);
+        }
+
+        /// <summary>
+        /// Will not output file header comments within the robots.txt output, by default a created date along with robotify version information will be added as comments
+        /// </summary>
+        /// <returns></returns>
+        public RobotifyOptionsConfigurer DisableFileHeaderComments()
+        {
+            options.DisableFileHeaderComments = true;
+            return this;
         }
     }
 }
