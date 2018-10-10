@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace Robotify.AspNetCore
@@ -15,6 +14,8 @@ namespace Robotify.AspNetCore
         public int? CrawlDelay { get; set; }
         
         public Uri SitemapUrl { get; set; }
+
+        public bool DisableFileHeaderComments { get; set; }
          
         public RobotifyOptions Add(RobotsGroup group)
         {
