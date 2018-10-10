@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
-namespace Robotify.AspNetCore
+namespace Robotify.AspNetCore.Config
 {
     public class ConfigureRobotifyOptions : IConfigureOptions<RobotifyOptions>
     {
@@ -16,8 +16,8 @@ namespace Robotify.AspNetCore
         public void Configure(RobotifyOptions options)
         {
             configuration.GetSection("Robotify").Bind(options);
-            var groups = configuration.GetSection("Robotify:Groups").Get<IList<RobotsGroup>>();
-            options.Groups = groups ?? new List<RobotsGroup>();
+            //var groups = configuration.GetSection("Robotify:Groups").Get<HashSet<RobotGroup>>();
+            //options.Groups = groups ?? new HashSet<RobotGroup>();
         }
     }
 }
