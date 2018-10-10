@@ -63,11 +63,11 @@ Robotify can be configured within the `.UseRobotify()` method or via json config
       },
       {
         "UserAgent": "Googlebot",
-        "Disallow": "/admin"
+        "Disallow": ["/admin"]
       },
       {
         "UserAgent": "AnotherBot",
-        "Allow": "/search"
+        "Allow": ["/search"]
       }
     ]
   }
