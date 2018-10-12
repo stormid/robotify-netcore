@@ -1,18 +1,22 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using Microsoft.Extensions.Options;
+using Robotify.AspNetCore.Config;
 
 namespace Robotify.AspNetCore
 {
     public class RobotifyContentWriter : IRobotifyContentWriter
     {
         private readonly RobotifyOptions options;
+        private readonly IEnumerable<IRobotifyRobotGroupProvider> providers;
 
-        public RobotifyContentWriter(IOptions<RobotifyOptions> options)
+        public RobotifyContentWriter(IOptions<RobotifyOptions> options, IEnumerable<IRobotifyRobotGroupProvider> providers)
         {
             this.options = options.Value;
+            this.providers = providers;
         }
         
         protected string GenerateSyntaxLine<T>(string key, T value)
@@ -43,16 +47,16 @@ namespace Robotify.AspNetCore
                 sb.AppendLine(GetSitemapUrl(options.SitemapUrl));
             }
 
-            if (options.HasGroups())
+            sb.AppendLine();
+
+            var groups = providers.SelectMany(s => s.Get()).OrderBy(s => s.Order).Distinct().ToList() ?? Enumerable.Empty<RobotGroup>();
+            foreach (var group in groups)
             {
+                sb.AppendLine(GetRobotsGroup(group));
                 sb.AppendLine();
-                foreach (var group in options.Groups)
-                {
-                    sb.AppendLine(GetRobotsGroup(group));
-                }
             }
 
-            return sb.ToString();
+            return sb.ToString().Trim();
         }
 
         protected virtual IEnumerable<string> GetFileHeaderComments()
@@ -61,7 +65,7 @@ namespace Robotify.AspNetCore
             yield return $"created: {DateTimeOffset.UtcNow:s}\n";
         }
 
-        protected virtual string GetRobotsGroup(RobotsGroup group)
+        protected virtual string GetRobotsGroup(RobotGroup group)
         {
             return group.ToString();
         }

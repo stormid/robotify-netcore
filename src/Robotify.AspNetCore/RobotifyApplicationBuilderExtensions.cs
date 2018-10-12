@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Robotify.AspNetCore.Config;
 
 namespace Robotify.AspNetCore
 {
@@ -17,11 +18,11 @@ namespace Robotify.AspNetCore
             var options = app.ApplicationServices.GetService<IOptions<RobotifyOptions>>();
             var configurer = new RobotifyOptionsConfigurer(options.Value);
 
-            if (configureOptions == null && !options.Value.HasGroups())
-            {
-                configureOptions = r => r.DenyAll();
-                logger.LogInformation(evt, "[Robotify] - you have no rules configured, adding default deny all just to keep you safe!");
-            }
+            //if (configureOptions == null && !options.Value.HasGroups())
+            //{
+            //    configureOptions = r => r.DenyAll();
+            //    logger.LogInformation(evt, "[Robotify] - you have no rules configured, adding default deny all just to keep you safe!");
+            //}
 
             try
             {
