@@ -3,7 +3,7 @@ trigger:
   branches:
     include:
     - master
-    - refs/head/tags/*
+    - refs/tags/*
 variables:
   vmImage: 'windows-latest'
 stages:
@@ -38,6 +38,10 @@ stages:
         downloadType: 'specific'
         itemPattern: '**'
         downloadPath: '$(System.ArtifactsDirectory)'
+    - task: NuGetToolInstaller@1
+      inputs:
+        versionSpec: 
+        checkLatest: true
     - task: NuGetCommand@2
       inputs:
         command: 'push'
