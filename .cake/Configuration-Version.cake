@@ -1,4 +1,4 @@
-#tool "nuget:?package=GitVersion.CommandLine&prerelease"
+#tool "nuget:?package=GitVersion.CommandLine&version=4.0.0&prerelease"
 
 public class BuildVersion {
     public FilePath VersionAssemblyInfo { get; private set; }

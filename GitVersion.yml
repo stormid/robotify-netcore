@@ -1,8 +1,19 @@
-assembly-versioning-scheme: MajorMinorPatch
-mode: ContinuousDeployment
+assembly-versioning-scheme: MajorMinorPatchTag
+assembly-file-versioning-scheme: MajorMinorPatchTag
+assembly-informational-format: '{MajorMinorPatch}+{BranchName}+{ShortSha}'
+mode: Mainline
 branches:
-  master:
+  release:
+    mode: ContinuousDelivery
     tag: ''
-ignore:
-  sha: []
-
+  master:
+    tag: ci
+  pull-request:
+    mode: ContinuousDeployment
+    tag: pr
+  hotfix:
+    mode: ContinuousDeployment
+    tag: fix
+  feature:
+    mode: ContinuousDeployment
+    tag: wip

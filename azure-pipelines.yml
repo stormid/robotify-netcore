@@ -1,0 +1,46 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+    - refs/head/tags/*
+variables:
+  vmImage: 'windows-latest'
+stages:
+- stage: build
+  displayName: 'Build'
+  jobs:
+  - job: cake
+    displayName: 'Cake'
+    pool:
+      vmImage: $(vmImage)
+    variables:
+      cake.buildTarget: 'CI'
+      build.configuration: 'Release'
+      cake.verbosity: 'Verbose'
+    steps:
+    - powershell: ./build.ps1 -Target "$(cake.buildTarget)" -Configuration "$(build.configuration)" -Verbosity "$(cake.verbosity)"
+      displayName: 'Cake Build'
+
+- stage: PublishRelease
+  displayName: 'Publish Release'
+  dependsOn: build
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
+  jobs:
+  - job: PublishNuGet
+    displayName: 'Publish to NuGet'
+    pool:
+      vmImage: $(vmImage)
+    steps:   
+    - task: DownloadBuildArtifacts@0
+      inputs:
+        buildType: 'current'
+        downloadType: 'specific'
+        itemPattern: '**'
+        downloadPath: '$(System.ArtifactsDirectory)'
+    - task: NuGetCommand@2
+      inputs:
+        command: 'push'
+        packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;$(Build.ArtifactStagingDirectory)/**/*.snupkg'
+        nuGetFeedType: 'external'
+        publishFeedCredentials: '$(artifacts.nuget.feed)'
