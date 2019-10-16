@@ -1,5 +1,4 @@
-#load "CI-VSTS.cake"
-#load "CI-AppVeyor.cake"
+#load "CI-Azure-DevOps.cake"
 
 Task("CI")
     .IsDependentOn("CI:UpdateBuildNumber")

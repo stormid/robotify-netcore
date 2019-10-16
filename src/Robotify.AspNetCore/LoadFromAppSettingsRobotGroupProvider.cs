@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.Configuration;
 
 namespace Robotify.AspNetCore
@@ -14,7 +15,7 @@ namespace Robotify.AspNetCore
 
         public IEnumerable<RobotGroup> Get()
         {
-            var groups = configuration.GetSection("Robotify:Groups").Get<List<RobotGroup>>();
+            var groups = configuration.GetSection("Robotify:Groups")?.Get<List<RobotGroup>>() ?? Enumerable.Empty<RobotGroup>();
             return groups;
         }
     }

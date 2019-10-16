@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26711.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{651161E6-8546-4120-80F8-393F72DA184C}"
 EndProject
@@ -13,12 +13,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Robotify.AspNetCore.Sample"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{907C66C2-7C62-4CF5-BAEA-2E0EF263D8D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robotify.AspNetCore.Tests", "test\Robotify.AspNetCore.Tests\Robotify.AspNetCore.Tests.csproj", "{CE5CF044-2CFC-4741-B3E6-8286E68396FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Robotify.AspNetCore.Tests", "test\Robotify.AspNetCore.Tests\Robotify.AspNetCore.Tests.csproj", "{CE5CF044-2CFC-4741-B3E6-8286E68396FE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DA7182AF-564B-4F05-9727-C22DEBB7BC14}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robotify.AspNetCore.SampleCore3", "sample\Robotify.AspNetCore.SampleCore3\Robotify.AspNetCore.SampleCore3.csproj", "{17777CA0-3B34-4EF1-A625-8625E35F3AED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +68,18 @@ Global
 		{CE5CF044-2CFC-4741-B3E6-8286E68396FE}.Release|x64.Build.0 = Release|Any CPU
 		{CE5CF044-2CFC-4741-B3E6-8286E68396FE}.Release|x86.ActiveCfg = Release|Any CPU
 		{CE5CF044-2CFC-4741-B3E6-8286E68396FE}.Release|x86.Build.0 = Release|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Debug|x64.Build.0 = Debug|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Debug|x86.Build.0 = Debug|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Release|x64.ActiveCfg = Release|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Release|x64.Build.0 = Release|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Release|x86.ActiveCfg = Release|Any CPU
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +88,7 @@ Global
 		{6F29A732-1F14-46D5-82BD-13B0B9DA9C1C} = {651161E6-8546-4120-80F8-393F72DA184C}
 		{500341DA-E000-4DFA-B152-72F5DD9F2E1F} = {68225040-5EBB-4F50-998E-3FD4B964E2C2}
 		{CE5CF044-2CFC-4741-B3E6-8286E68396FE} = {907C66C2-7C62-4CF5-BAEA-2E0EF263D8D8}
+		{17777CA0-3B34-4EF1-A625-8625E35F3AED} = {68225040-5EBB-4F50-998E-3FD4B964E2C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {45F80062-14BB-478F-A425-335F4F20D50C}

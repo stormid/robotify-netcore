@@ -12,8 +12,7 @@ Task("Publish:Pack:DotNetCore")
         NoRestore = true,
         IncludeSymbols = true,
         Configuration = config.Solution.BuildConfiguration,
-        OutputDirectory = projectArtifactDirectory,
-        Verbosity = DotNetCoreVerbosity.Minimal
+        OutputDirectory = projectArtifactDirectory
     };
     settings.MSBuildSettings = new DotNetCoreMSBuildSettings();
     settings.MSBuildSettings

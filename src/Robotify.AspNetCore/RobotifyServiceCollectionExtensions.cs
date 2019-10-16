@@ -43,7 +43,7 @@ namespace Robotify.AspNetCore
         {
             serviceCollection.TryAddScoped<IRobotifyRobotsGroupsResolver, TRobotGroupsResolver>();
             serviceCollection.TryAddScoped<IRobotifyContentWriter, TContentWriter>();
-            serviceCollection.TryAddSingleton<RobotifyMiddleware>();
+            serviceCollection.TryAddScoped<RobotifyMiddleware>();
             return serviceCollection;
         }
 
