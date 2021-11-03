@@ -82,7 +82,21 @@ Robotify can be configured within the `.UseRobotify()` method or via json config
   "Robotify": {
     "Enabled": true,
     "SitemapUrl": "https://www.example.com/sitemap.xml",
-    "CrawlDelay": 10
+    "CrawlDelay": 10,
+    "Groups": [
+      {
+        "UserAgent": "*",
+        "Disallow": "/"
+      },
+      {
+        "UserAgent": "Googlebot",
+        "Disallow": ["/admin"]
+      },
+      {
+        "UserAgent": "AnotherBot",
+        "Allow": ["/search"]
+      }
+    ]
   }
 }
 ```
